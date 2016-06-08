@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <script>window.__startTime = (new Date()*1);</script>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" media="all" href="css/main.css">
+ <!--        <script type="text/javascript" src="//use.typekit.net/lyg7zzn.js"></script>
+         <script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
+    </head>
+    <body>
+    
+
+    <div id="bg" style="font-family: HelveticaT;">
+    <div id="shade"></div>
+
+
+
+      <div id="date_container">
+      <div id="date"></div><div id="clock"></div>
+      <div id="countdown"><span class="contdown-label"></div>
+      </div>
+      <div id="current_temp"></div>
+      <canvas id="current_condition_icon" width="128" height="128"></canvas>
+      <div id="today_text" class="summary_text"></div>
+
+      <canvas id="graph_day" width="1100" height="250"></canvas>
+      
+      <div id="thisweek_text" class="summary_text"></div>
+
+      <div id="notification_log" class="notification_text">
+      </div>
+
+<!--       <div id="today_text" class="summary_text">This month is going down to 71º -8º. It’s getting colder until
+February.</div> -->
+
+   </div>
+
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/moment.min.js"></script>
+    <script src="js/libs/browserMqtt.js"></script>
+    <script src="js/skycons.js"></script>
+    <script src="js/curve.js"></script>
+    <script src="js/main.js"></script>
+
+   </body>
+</html>
