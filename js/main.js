@@ -342,8 +342,8 @@
         case 0:
           whiteColor = [255,255,255];
           $("#shade").hide();
-          // $("#bg").toggleClass("sunset", false);
-          // $("#bg").toggleClass("night", false);
+          $("#bg").toggleClass("sunset", false);
+          $("#bg").toggleClass("night", false);
           break;
         case 1:
           whiteColor = [255,255,255];
