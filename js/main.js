@@ -63,6 +63,15 @@
     var client = mqtt.connect('mqtt://192.168.0.26:1884/',{'reconnectPeriod': 60000}); // you add a ws:// url here
     client.subscribe("speaker/log");
 
+client.on('connect', function () {
+  client.subscribe('presence');
+});
+
+
+    client.on("connect", function() {
+      client.publish('speaker/say', 'Weather display is online.');
+    });
+
     client.on("message", function(topic, payload) {
       console.log([topic, payload].join(": "));
       $( "#notification_log" ).prepend('<p>' + payload + '</p>');
