@@ -60,7 +60,7 @@
   };
 
   var connectToMQTT = function() {
-    var client = mqtt.connect('mqtt://192.168.0.26:1884/'); // you add a ws:// url here
+    var client = mqtt.connect('mqtt://192.168.0.26:1884/',{'reconnectPeriod': 60000}); // you add a ws:// url here
     client.subscribe("speaker/log");
 
     client.on("message", function(topic, payload) {
@@ -340,24 +340,26 @@
     if (previousDimMode !== dimMode) {
       switch (dimMode) {
         case 0:
-          $("#shade").hide();
-          $("#bg").toggleClass("sunset", false);
-          $("#bg").toggleClass("night", false);
           whiteColor = [255,255,255];
+          $("#shade").hide();
+          // $("#bg").toggleClass("sunset", false);
+          // $("#bg").toggleClass("night", false);
           break;
         case 1:
-          $("#bg").toggleClass("sunset", true);
-          $("#bg").toggleClass("night", false);
-          whiteColor = [255,200,200];
-          // $("#shade").css("backgroundColor", "rgba(80,30,0,0.5)");
-          // $("#shade").show();
+          whiteColor = [255,255,255];
+          $("#shade").css("backgroundColor", "rgba(80,30,0,0.5)");
+          $("#shade").show();
+          // $("#bg").toggleClass("sunset", true);
+          // $("#bg").toggleClass("night", false);
+          // whiteColor = [255,200,200];
           break;
         case 2:
-          $("#bg").toggleClass("sunset", false);
-          $("#bg").toggleClass("night", true);
-          whiteColor = [40,0,0];
-          // $("#shade").css("backgroundColor", "rgba(30,0,0,0.85)");
-          // $("#shade").show();
+          whiteColor = [255,255,255];
+          $("#shade").css("backgroundColor", "rgba(30,0,0,0.85)");
+          $("#shade").show();
+          // $("#bg").toggleClass("sunset", false);
+          // $("#bg").toggleClass("night", true);
+          // whiteColor = [40,0,0];
           break;
       }
       skycons.color = 'rgb(' + whiteColor[0] + ',' + whiteColor[1] + ',' + whiteColor[2] + ')'
