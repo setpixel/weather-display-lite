@@ -68,6 +68,11 @@
       client.publish('speaker/say', 'Weather display is online.');
     });
 
+    client.on("reconnect", function() {
+      client.subscribe("speaker/log");
+      client.publish('speaker/say', 'Weather display reconnected.');
+    });
+
     client.on("message", function(topic, payload) {
       console.log([topic, payload].join(": "));
       $( "#notification_log" ).prepend('<p>' + payload + '</p>');
