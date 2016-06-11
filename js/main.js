@@ -310,7 +310,6 @@
   var previousDimMode = 0;
 
   var renderClock = function() {
-    $('#shade').css("height", 1920+Math.round(Math.random()*100));
 
     var today = new Date();
     var h = today.getHours();
