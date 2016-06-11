@@ -66,19 +66,29 @@
     client.on("connect", function() {
       client.subscribe("speaker/log");
       client.publish('speaker/say', 'Weather display is online.');
+
+      client.on("message", function(topic, payload) {
+        console.log([topic, payload].join(": "));
+        $( "#notification_log" ).prepend('<p>' + payload + '</p>');
+        $('#shade').css("height", 1920+Math.round(Math.random()*100));
+        //client.end();
+      });
+
     });
 
     client.on("reconnect", function() {
       client.subscribe("speaker/log");
       client.publish('speaker/say', 'Weather display reconnected.');
+
+      client.on("message", function(topic, payload) {
+        console.log([topic, payload].join(": "));
+        $( "#notification_log" ).prepend('<p>' + payload + '</p>');
+        $('#shade').css("height", 1920+Math.round(Math.random()*100));
+        //client.end();
+      });
+
     });
 
-    client.on("message", function(topic, payload) {
-      console.log([topic, payload].join(": "));
-      $( "#notification_log" ).prepend('<p>' + payload + '</p>');
-
-      //client.end();
-    });
   }
 
   var renderWeatherData = function() {
@@ -300,6 +310,8 @@
   var previousDimMode = 0;
 
   var renderClock = function() {
+    $('#shade').css("height", 1920+Math.round(Math.random()*100));
+
     var today = new Date();
     var h = today.getHours();
     if (h == 0) {

@@ -51,6 +51,14 @@ body {
 	display: none;
 }
 
+#notification_log {
+	z-index: 1;
+}
+
+#notification_log p {
+	z-index: 1;
+}
+
 #current_temp {
 	font-size: 400px;
 	display: inline-block;
