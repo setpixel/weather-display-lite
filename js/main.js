@@ -3,7 +3,7 @@
 
   var weatherData;
   var skycons = new Skycons({"color": "white"});
-  skycons.play();
+  //skycons.play();
   var clockInterval;
   var CHECKTIME = 5;
 
@@ -88,7 +88,7 @@
     renderCurrent();
     renderClock();
     clearInterval(clockInterval);
-    clockInterval = setInterval(function(){renderClock()}, 1000);
+    clockInterval = setInterval(function(){renderClock()}, 10000);
     renderDay();
     renderWeek();
   }
