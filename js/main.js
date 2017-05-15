@@ -65,7 +65,8 @@
 
     client.on("connect", function() {
       client.subscribe("speaker/log");
-      client.publish('speaker/say', 'Weather display is online.');
+      // turning this off because it's annoying.
+      //client.publish('speaker/say', 'Weather display is online.');
     });
 
     client.on("message", function(topic, payload) {
